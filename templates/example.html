@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>etax login</title>
   </head>
   <body style="background-color: #0E83DD">
     <div class ="container">
@@ -17,21 +17,23 @@
           <div style=" margin: 40% 0 0 0" class="card">
             <div class="card-body">
               <img style="width:80%;height:50%; margin: 5% 0 0 5% " src="/static/img/etax.png" alt="E-tax logo"></img>
-              <h1 style="text-align: center">Log In To E-Tax</h1>
-
+              <p> </p>
+              <h2 style="text-align: center"> <font color="#0E83DD"> Log In To E-Tax </font></h2>
+	
     <form>
       <div class="form-group">
           <label for="email">Email address:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email">
+          <input onclick="resetColor()" type="email" class="form-control" id="email" placeholder="Enter email">
+       
       </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+
       </div>
       
       <button type="button" class="btn btn-primary btn-block"  onclick="login()">Log in</button>
-      
-      
+      <p id="incorrect_info"> </p>
     </form>
   </div>
   </div>
@@ -46,13 +48,45 @@
   function login(){
 	  var email    = document.getElementById("email").value;
 	  var password = document.getElementById("pwd").value;
-	  alert(validateEmail(email));
+	  if (!validateEmail(email) || password == ""){
+		  invalidEmailPassword();
+	  }else{
+		  var login_info = {};
+		  login_info["email"] = document.getElementById("email").value;
+		  login_info["password"] = document.getElementById("pwd").value;
+		  var http = new XMLHttpRequest();
+		  http.onreadystatechange = function(){
+		      if(this.readyState == 4 && this.status == 200){
+		    	  window.location.href = JSON.parse(this.responseText).home
+		      }else if (this.readyState == 4){
+		    	  invalidEmailPassword();
+		      }  
+		  };
+		  http.open("POST", "/user_login", true);
+		  http.setRequestHeader("Content-type", "application/json");
+		  http.send(JSON.stringify(login_info));
+	  }
   }  
   
+  function invalidEmailPassword(){
+	  document.getElementById("pwd").style.backgroundColor = "#fff5f5";
+	  document.getElementById("pwd").style.borderColor     = "#d53f3f";
+	  document.getElementById("pwd").style.color           = "#0";
+	  document.getElementById("email").style.backgroundColor = "#fff5f5";
+	  document.getElementById("email").style.borderColor     = "#d53f3f";
+	  
+	  document.getElementById("incorrect_info").style.color = "#d53f3f";
+	  document.getElementById("incorrect_info").innerHTML = "Username or password is invalid";
+  }
+  
+  function resetColor(){
+	  document.getElementById("email").style.backgroundColor = "#ffffff";
+	  document.getElementById("pwd").style.backgroundColor = "#ffffff";
+  }
 
   function validateEmail(email) {
 	  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	  return re.test(email);
+	  return (re.test(email));
   }  
   </script>
   
