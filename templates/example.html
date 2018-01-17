@@ -20,22 +20,43 @@
               <h1 style="text-align: center">Log In To E-Tax</h1>
 
     <form>
-        <div class="form-group">
+      <div class="form-group">
           <label for="email">Email address:</label>
           <input type="email" class="form-control" id="email" placeholder="Enter email">
-        </div>
+      </div>
       <div class="form-group">
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="pwd" placeholder="Enter password">
       </div>
-      <button type="button" class="btn btn-primary btn-block">Log in</button>
+      
+      <button type="button" class="btn btn-primary btn-block"  onclick="login()">Log in</button>
+      
+      
     </form>
   </div>
   </div>
   </div>
   </div>
   </div>
-    <!-- Optional JavaScript -->
+  
+  <!-- ----------------- -->
+  <!-- ACTION FOR BUTTON -->
+  <!-- ----------------- -->
+  <script type="text/javascript">
+  function login(){
+	  var email    = document.getElementById("email").value;
+	  var password = document.getElementById("pwd").value;
+	  alert(validateEmail(email));
+  }  
+  
+
+  function validateEmail(email) {
+	  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	  return re.test(email);
+  }  
+  </script>
+  
+  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
