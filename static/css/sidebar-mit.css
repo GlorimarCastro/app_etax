@@ -1,0 +1,7 @@
+.sidebar2{
+	color: #F0F0F0;
+	
+}
+.sidebar2:hover, .sidebar2:focus {
+    background-color: #164987;
+}
