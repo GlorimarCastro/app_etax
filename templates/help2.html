@@ -176,267 +176,125 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 
 	<div class="content-wrapper">
 		<div class="container-fluid">
-			<!-- -------------------- -->
-			<!--   Header statuco -->
-			<!-- -------------------- -->
 
-
-			<div class="row" >
+			 
+<div class="row" >
 				<div class="col-sm-12" style=" z-index: 1024; background-color: #FFFFFF; margin: -1% 0 0 0%;" >
 					<div class="row">
 					
-						<div class="col-sm-8 mb-0 mt-4" style="">
-				  		<h2>Projects</h2>
+						<div class="col-sm-12 mb-0 mt-4" style="">
+				  		<h2>Help Center</h2>
 				  	</div>
-				  	<div class="col-sm-4 mb-0 mt-4">
-				  		<a class="nav-link" data-toggle="modal" data-target="#addProjectModal">
-				  			<button type="button" class="btn btn-outline-primary pull-right">+ Add Project</button>
-				  		</a>
-				  	</div>
+				  	
 					</div>
-					<div clas="row">
-					  <div class="mb-0 mt-4"">
-					  
-					  
-					   	<div class="row">
-					   		<div class="col-sm-4">
-					   			<div class="mb-0 ">Name</div>
-					   		</div>
-					   		<div class="col-sm-2">
-					   			<div class="mb-0 text-left">Due Date</div>
-					   		</div>
-					   		<div class="col-sm-4">
-					   			<div class="mb-0 text-left">Members</div>
-					   		</div>
-					  	</div>
-					  	<hr class="mt-2">
-						</div>
-				  </div>
+					
 				</div>
 			</div>
-	
- 			<!-- -------------------- -->
-			<!--   Area de proyecto -->
-			<!-- -------------------- -->   
-   
-			<div class="row">
-				<div class="col-md-12 pre-scrollable " style="margin-top: 0%; min-height: 75vh">
 
-					<div class=" card mb-3" id="projects">
-					</div>
-				</div>
-			</div>
-		 	
+    <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+  </div>
+  <input type="text" id="search-criteria" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+</div>
+
+<div id="accordion">
+
+<div class="card">
+<div class="card-header" id="headingOne">
+  <h5 class="mb-0">
+    <i class="fa fa-question-circle"></i>
+    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+     Add a Project
+    </button>
+  </h5>
+</div>
+
+<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+  <div class="card-body">
+  Adding Project can help you keep track of them:
+  <br/>
+  <ol>
+    <li>To add a project click the <strong>Projects</strong> option in the left side Bar.</li>
+    <li>In the projects view, select the <strong>add project button in top right corner.</strong></li>
+    <br/>
+    <img style="width: 900px; height: 400px;"src="/static/img/help.png" alt="projects">
+  </ol>
+
+  </div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header" id="headingTwo">
+  <h5 class="mb-0">
+    <i class="fa fa-question-circle"></i>
+    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+      Delete a Project
+    </button>
+  </h5>
+</div>
+
+<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+  <div class="card-body">
+    Be careful when deleting Projects since they cannot be recovered after being deleted:
+    <br/>
+    <ol>
+
+      <li>To delete a project click the <strong>Projects</strong> option in the left side Bar.</li>
+      <li>In the projects view, select the <strong>delete project button</strong> at the right side of the project you want to delete.</li>
+      <li>A confirmation message will appear before proceeding to delete the project.</li>
+      <br/>
+      <img style="width: 900px; height: 400px;"src="/static/img/help.png" alt="projects">
+    </ol>
+  </div>
+</div>
+</div>
+<div class="card">
+<div class="card-header" id="headingThree">
+  <h5 class="mb-0">
+    <i class="fa fa-question-circle"></i>
+    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    Edit a Project
+    </button>
+  </h5>
+</div>
+<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+  <div class="card-body">
+    Editing Projects can help you make updates to them in case changes occur:
+    <br/>
+    <ol>
+      <li>To edit a project click the <strong>Projects</strong> option in the left side Bar.</li>
+      <li>In the projects view, select the <strong>edit project button</strong> at the right side of the project you want to delete.</li>
+      <br/>
+      <img style="width: 900px; height: 400px;"src="/static/img/help.png" alt="projects">
+    </ol>
+  </div>
+</div>
+</div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+    $("#search-criteria").on("keyup", function() {
+    var g = $(this).val().toLowerCase();
+    // $(".fbbox .fix label").each(function()
+       $(".card .card-header .mb-0 button").each(function(){
+        var s = $(this).text().toLowerCase();
+        $(this).closest('.card')[ s.indexOf(g) !== -1 ? 'show' : 'hide' ]();
+    });
+});
+    </script>
+
 
  		</div>
   </div>
   
-	<!-- --------------------- -->
-	<!-- --------MODALS------- -->
-	<!-- --------------------- -->
-	<div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModal" aria-hidden="true">
-      <div class="modal-dialog" role="dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add New Project</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <form action="/action_page.php" id="addProjectForm">
-          <label for="required" class="form-control-label">
-  					<strong style="color: red;">Required*</strong>
-					</label>
-    				<div class="form-group">
-      				<label for="name">Name:</label><strong style="color: red;"> *</strong>
-      				<div id="nameBox">
-      					<input onclick="resetNameColor()" type="text" class="form-control" id="project_name" placeholder="Enter project name" name="project_name" required>
-      				</div>
-    				</div>
-    				<div class="form-group">
-      				<label for="projectDescription">Description:</label>
-      				<div id="descriptionBox">
-      					<input  type="text" class="form-control" id="project_description" placeholder="Enter a brief description for the project" name="projectDescription" >
-      				</div>
-    				</div>
-    				<div class="form-group">
-	    				<label for="importance">Importance:</label>
-	    				<input list="importanceList" id="project_importance" class="form-control" placeholder="Select an importance level" name="project_importance">
-  							<datalist id="importanceList">
-    							<option value="Low"></option>
-   								<option value="Medium"></option>
-   								<option value="High"></option>
-  							</datalist>
-	    			</div>
-    				<div class="form-group">
-      				<label for="name">Deadline:</label>
-      				<input type="date" class="form-control" id="project_deadline"  name="project_deadline">
-    				</div>
-	    			<div class="form-group">
-	    				<label for="approveBy">Needs to be Approved by:</label>
-	    				<input list="administrators" id="project_approved_person" class="form-control" placeholder="Select an administrator" name="approval">
-  							<datalist id="administrators">
-    							<option value="Gloribel"></option>
-   								<option value="Janire"></option>
-  							</datalist>
-	    			</div>
-	    			<div class="form-group">
-	    				<label for="approveBy">Members:</label><strong style="color: red;"> *</strong>
-	    				<div class="small text-muted">Select at least one member. By default you will be a member</div>
-	    				<div id="project_members_selected_div" onchange="resetMembersColor()" ><select onclick="resetMembersColor()" class="form-control selectpicker"  multiple placeholder="Select at least one member" data-live-search="true" name="approval" id="project_members_selected">
-    							<option onclick="resetMembersColor()"  value="Gloribel">Gloribel</option>
-    							<option onclick="resetMembersColor()"  value="Graciany">Graciany</option>
-    							<option onclick="resetMembersColor()"  value="Glorimar">Glorimar</option>
-   								<option onclick="resetMembersColor()"  value="Janire">Janire</option>
-   								<option onclick="resetMembersColor()"  value="Fabiola">Fabiola</option>
-  							</select></div>
-	    			</div>
-	    			<div class="form-group">
-	    				<label for="marketing_chanels">Marketing Channel(s):</label>
-	    				<div class="row">
-              		<div style="margin: 0px 0px 0px 5%" class="span2">
-	                	<label class="checkbox">
-	                  	<input type="checkbox" name="optionsCheckboxList1" id="facebook" value="FaceBook">
-	                  	Facebook  &emsp; 
-	                	</label>
-										<label class="checkbox">
-	                  	<input type="checkbox" name="optionsCheckboxList1" id="email" value="e-mail">
-	                		E-mail    &emsp;
-	                	</label>
-	                	<label class="checkbox">
-	                  	<input type="checkbox" name="optionsCheckboxList1" id="newspaper" value="Newspaper">
-	                		Newspaper   
-	                	</label>
-              		</div>
-           			
-            	</div>
-	    			
-	    			</div>
-	    			
-	    			</form>
- 					
- 					</div>
-          <div class="modal-footer">
-          <button id="addBtn" title="Are you sure?" onClick="createNewProject()" type="button" data-trigger="manual" class="btn btn-secondary" data-container="body" data-html="true" data-toggle="popover" data-placement="top" href="#">
- Add
-</button>
-	          	 <button class="btn btn-secondary" onClick="clearNewProjectModal()" type="button" data-dismiss="modal">Cancel</button> <br>
-            <!--  <a class="btn btn-primary" href="/userLogout">Logout</a>-->
-          </div>
-          <div id="add_project_validation_message">
-          </div>
-          </form>
-        </div>
-      </div>
-	</div>
-	
-	<!-- -------------- -->
-	<!-- -------------- -->
-	<!--  EDIT MODAL -->
-	<!-- -------------- -->
-	<!-- -------------- -->
-		<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModal" aria-hidden="true">
-      <div class="modal-dialog" role="dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Project</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          <form action="/action_page.php" id="addProjectForm">
-          <label for="required" class="form-control-label">
-  					<strong style="color: red;">Required*</strong>
-					</label>
-    				<div class="form-group">
-      				<label for="name">Name:</label><strong style="color: red;"> *</strong>
-      				<div id="nameBox">
-      					<input onclick="resetNameColor()" type="text" class="form-control" id="edit_project_name" placeholder="Enter project name" name="project_name" required>
-      					<input id="edit_project_id" style="display:none">
-      				</div>
-    				</div>
-    				<div class="form-group">
-      				<label for="projectDescription">Description:</label>
-      				<div id="descriptionBox">
-      					<input  type="text" class="form-control" id="edit_project_description" placeholder="Enter a brief description for the project" name="projectDescription" >
-      				</div>
-    				</div>
-    				<div class="form-group">
-	    				<label for="importance">Importance:</label>
-	    				<input list="importanceList" id="edit_project_importance" class="form-control" placeholder="Select an importance level" name="project_importance">
-  							<datalist id="importanceList">
-    							<option value="Low"></option>
-   								<option value="Medium"></option>
-   								<option value="High"></option>
-  							</datalist>
-	    			</div>
-    				<div class="form-group">
-      				<label for="name">Deadline:</label>
-      				<input type="date" class="form-control" id="edit_project_deadline"  name="project_deadline">
-    				</div>
-	    			<div class="form-group">
-	    				<label for="approveBy">Needs to be Approved by:</label>
-	    				<input list="administrators" id="edit_project_approved_person" class="form-control" placeholder="Select an administrator" name="approval">
-  							<datalist id="administrators">
-    							<option value="Gloribel"></option>
-   								<option value="Janire"></option>
-  							</datalist>
-	    			</div>
-	    			<div class="form-group">
-	    				<label for="approveBy">Members:</label><strong style="color: red;"> *</strong>
-	    				<div class="small text-muted">Select at least one member. By default you will be a member</div>
-	    				<div id="edit_project_members_selected_div" onchange="resetMembersColor()" ><select onclick="resetMembersColor()" class="form-control selectpicker"  multiple placeholder="Select at least one member" data-live-search="true" name="edit_approval" id="edit_project_members_selected">
-    							<option onclick="resetMembersColor()"  value="Gloribel">Gloribel</option>
-    							<option onclick="resetMembersColor()"  value="Graciany">Graciany</option>
-    							<option onclick="resetMembersColor()"  value="Glorimar">Glorimar</option>
-   								<option onclick="resetMembersColor()"  value="Janire">Janire</option>
-   								<option onclick="resetMembersColor()"  value="Fabiola">Fabiola</option>
-  							</select></div>
-	    			</div>
-	    			<div class="form-group">
-	    				<label for="marketing_chanels">Marketing Channel(s):</label>
-	    				<div class="row">
-              		<div style="margin: 0px 0px 0px 5%" class="span2">
-	                	<label class="checkbox">
-	                  	<input type="checkbox" name="optionsCheckboxList1" id="edit_facebook" value="facebook">
-	                  	Facebook  &emsp; 
-	                	</label>
-										<label class="checkbox">
-	                  	<input type="checkbox" name="optionsCheckboxList1" id="edit_email" value="email">
-	                		E-mail    &emsp;
-	                	</label>
-	                	<label class="checkbox">
-	                  	<input type="checkbox" name="optionsCheckboxList1" id="edit_newspaper" value="newspaper">
-	                		Newspaper   
-	                	</label>
-              		</div>
-           			
-            	</div>
-	    			
-	    			</div>
-	    			
-	    			</form>
- 					
- 					</div>
-          <div class="modal-footer">
-          <button id="editProjectBtn" title="Are you sure?" onClick="editProjectPopout()" type="button" data-trigger="manual" class="btn btn-secondary" data-container="body" data-html="true" data-toggle="popover" data-placement="top" href="#">
- Edit
-</button>
-	          	 <button class="btn btn-secondary" onClick="clearEditProjectModal()" type="button" data-dismiss="modal">Cancel</button> <br>
-            <!--  <a class="btn btn-primary" href="/userLogout">Logout</a>-->
-          </div>
-          <div id="edit_project_validation_message">
-          </div>
-          </form>
-        </div>
-      </div>
-	</div>
-	
-	
-	
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -449,11 +307,11 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
           <div class="modal-footer">
           <a class="btn btn-secondary" href="/userLogout">Logout</a>
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-  
           </div>
         </div>
       </div>
 	</div>
+
   
 
     
@@ -852,22 +710,20 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			  document.getElementById("profile_pic").src = 'static/img/' + userProjects[i].current_user_name + '.jpg';
 			  var temp_deadline = (userProjects[i].deadline == "") ? "None" : userProjects[i].deadline;
 			  html_string_projects += `
-		        	 <a class="list-group-item list-group-item-action" href="#">
+		        	 <a class="list-group-item list-group-item-action" href=` + "\"/project?name=" + userProjects[i].name + "&id=" + userProjects[i].id + "\"" + `>
 							  <div class="media">
 			                  <div class="media-body">
 			                  <div class="row">
 				               	<div class="col-sm-12 my-auto">
 				               		<div class="row">
-				               			<div class="col-sm-4" onclick= ` + "\"cambiaPagina('" +  userProjects[i].name + "','" +  userProjects[i].id + "')\""  + `>
-				               			
+				               			<div class="col-sm-4">
 				                  		<div class="h4 mb-0 text-primary">` + userProjects[i].name + `</div>
 				                  		<div class="small text-muted">Owner: ` + userProjects[i].owner + `</div>
-				                  	
 				                  	</div>
-				                  	<div class="col-sm-2" onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>
+				                  	<div class="col-sm-2">
 			                  			<div class="h4 mb-0 ">` +  temp_deadline + `</div>
 			                  		</div>
-			                  		<div class="col-sm-4" onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>
+			                  		<div class="col-sm-4">
 				                  		<div class="h4 mb-0 ">
 			                  	`;
 			   
@@ -900,11 +756,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 		  html_string_projects += `</div>`;
 		      document.getElementById('projects').innerHTML += html_string_projects;
 		}
-		 function cambiaPagina(name, id){
-			 
-			 window.location.href = "/project?name=" + name + "&id=" + id ;
-			
-		 }
+		 
 	
 		$(function () {
 			  $('[data-toggle="popover"]').popover(

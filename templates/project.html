@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>E-tax En Familia</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Custom fonts for this template-->
+  <link href="static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+  <!-- Page level plugin CSS-->
+  <link href="static/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  
+  <!-- Custom styles for this template-->
+  <link href="static/css/sb-admin.css" rel="stylesheet">
+  <link href="static/css/sidebar-mit.css" rel="stylesheet" type="text/css">
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+ <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    
+   
+
+  
+<style>
+
+/*
+Make bootstrap-select work with bootstrap 4 see:
+https://github.com/silviomoreto/bootstrap-select/issues/1135
+*/
+.dropdown-toggle.btn-default {
+  color: #292b2c;
+  background-color: #fff;
+  border-color: #ccc;
+  text-align: left;
+  border: none;
+  border-radius: 0px;
+}
+.dropdown-toggle.btn-default:focus,
+.dropdown-toggle.btn-default:hover{
+  color: #292b2c;
+  background-color: #fff;
+  border-color: #ccc;
+  text-align: left;
+  border: none;
+  border-radius: 0px;
+}
+.bootstrap-select.show>.dropdown-menu>.dropdown-menu {
+  display: block;
+}
+
+.bootstrap-select > .dropdown-menu > .dropdown-menu li.hidden{
+  display:none;
+}
+
+.bootstrap-select > .dropdown-menu > .dropdown-menu li a{
+  display: block;
+  width: 100%;
+  padding: 3px 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #292b2c;
+  text-align: inherit;
+  white-space: nowrap;
+  background: 0 0;
+  border: 0;
+}
+
+.dropdown-menu > li.active > a {
+  color: #fff !important;
+  background-color: #3f51b5 !important;
+}
+
+.bootstrap-select .check-mark::after {
+  content: "✓";
+}
+.bootstrap-select button {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Make filled out selects be the same size as empty selects */
+.bootstrap-select.btn-group .dropdown-toggle .filter-option {
+  display: inline !important;
+}
+
+</style>
+
+</head>
+
+
+
+
+<body class="fixed-nav sticky-footer"  id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #2960a1"  id="mainNav">
+    <a class="navbar-brand" href="index.html"> <img style="width:45%;height:30%; opacity: 0.8"src="/static/img/logo-etax-transparente.png" alt="E-tax"></img> </a>
+    <!-- BOTON QUE SALE CUANDO SE PONE PEQUENA LA PANTALLA -->
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- NAVA BAR COMPLETO -->
+    <div class="collapse navbar-collapse"   id="navbarResponsive">
+    
+      <!-- -------------- -->
+      <!-- COSAS SIDE BAR -->
+      <ul class="navbar-nav navbar-sidenav" style="background-color: #2960a1" id="exampleAccordion">
+        <a style="margin: 1% 0 0 3%">
+	        <img class="nav-item rounded-circle d-flex" data-toggle="tooltip" data-placement="right" id="profile_pic" style="width: 55%; max-width: 250px" src="static/img/user_profile"></img>
+	        <div>
+	        <div style="background-color: #FFFFFF; text-align: center; padding: 0 0% 0 0%; border-radius: 27px; width: 40%; margin: -1% 0 0 7%">
+	        <span  id="current_name" class="nav-link-text" style="color: #505050">Name </span> </div>
+	        </div>
+        <a >
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+          <a class="nav-link sidebar2" href="index.html">
+            <i class="fa fa-fw fa-dashboard" style="color: #F0F0F0"></i>
+            <span class="nav-link-text" style="color: #F0F0F0"> <b> Dashboard</b></span>
+          </a>
+        </li> -->
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Projects">
+          <a class="nav-link sidebar2" href="/projects">
+            <i class="fa fa-fw a fa-handshake-o" style="color: #F0F0F0"></i>
+            <span class="nav-link-text" style="color: #F0F0F0"> <b> Projects</b> </span>
+          </a>
+        </li>
+        
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Help">
+          <a class="nav-link sidebar2" href="help">
+            <i class="fa fa-fw fa-question" style="color: #F0F0F0"></i>
+            <span class="nav-link-text" style="color: #F0F0F0"> <b> Help</b></span>
+          </a>
+        </li>
+        </a>
+        </a>
+        
+      </ul>
+      
+      <!-- LO QUE HACE QUE SE CIERRE EL SIDE BAR -->
+      <ul class="navbar-nav sidenav-toggler" style="background-color: #164987" >
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      
+      <!-- NAV BAR DE ARRIBA -->
+      <ul class="navbar-nav ml-auto" style="background-color: #2960a1" >
+        
+        <li class="nav-item">
+        	
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+  	<!-- AREA BLANCA PARA MOSTRAR OPCIONES -->
+  	<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+	<div class="content-wrapper">
+		<div class="container-fluid">
+		
+			<!-- STATIC HEADER -->
+			<input id="project_id" style="display:none">
+				<div class="row" >
+				<div class="col-sm-12" style=" z-index: 1024; background-color: #FFFFFF; margin: -1% 0 0 0%;" >
+					<div class="row">					
+						<div class="col-sm-12 mb-0 mt-4" style="">
+				  		<h2>Projects/<a id="project_name"></a></h2>
+				  	</div>
+				  	<!-- <div class="col-sm-4 mb-0 mt-4">
+				  		<a class="nav-link" data-toggle="modal" data-target="#addProjectModal">
+				  			<button type="button" class="btn btn-outline-primary pull-right">+ Add Project</button>
+				  		</a>
+				  	</div> -->
+
+				</div>
+			</div>
+			</div>
+			<div class ="row">
+			
+				<!-- MARKETING MATERIAL -->
+				<div class="col-sm-7">
+					<div class=" card mb-3" id="marketing_material">
+						<div class="card-header"> Marketing Material</div>
+						<div class="card-body">
+						
+							<div class=" card mb-3" id="marketing_material_text">
+								<div class="card-header"> Text</div>
+								<div class="card-body">
+									 <textarea class="form-control" rows="5" id="comment" placeholder="Write some text"></textarea>
+								</div>
+							</div>
+							
+							<div class=" card mb-3" id="marketing_material_attachments">
+								<div class="card-header"> Attachments</div>
+								<div class="card-body">
+									
+										<div class="card-body">
+										<label class="custom-file" style="width: 100%">
+  										<input onchange="fileselected()" type="file" id="file" class="custom-file-input">
+  										<span class="custom-file-control"></span>
+										</label>
+									</div>
+									<div class="row">
+									<div class="card-body">
+										<div class="list-group list-group-flush small pre-scrollable" id="attachments"> 
+										</div>
+									</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				
+				<!-- marketing channel & approval -->
+				<div class="col-sm-5">
+					<!-- channels -->
+					<div class row>
+						<div class=" card mb-3" id="marketing_channel">
+							<div class="card-header"> Marketing Channel</div>
+							<div class="card-body">
+								<div class="list-group list-group-flush small" id="marketing_channel_list"> 
+									
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- approval -->
+					<div class row>
+						<div class=" card mb-3" id="approval">
+							<div class="card-header"> Approval</div>
+							<div class="card-body">
+							<label>Approval Status: <a id="approval_status">Not approved</a></label>
+							<label style="width: 100%">Comments by <a id="person2approve"></a>
+									 <textarea class="form-control" rows="5" id="comment" placeholder="No comments for the momment">Marketing material still needs work</textarea>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+ 		</div>
+  </div>
+  
+	
+
+   <!-- Modal -->
+  <div class="modal fade" id="emailSettingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Email Settings</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+<!-- <a href="#" data-toggle="tooltip" title="Hooray!">Required*</a> -->
+<label for="required" class="form-control-label">
+  <strong style="color: red;">Required*</strong>
+</label>
+<br/>
+<br/>
+<label for="recipient-name" class="form-control-label">
+  <span data-toggle="tooltip" data-placement="right" title="Default send to all">Filter Recipients:</span>
+  <p style="font-size: 12px; margin:0 0 1% 0">Select all the filters that apply. If no filter selected the email will be send to all people in database</p>
+</label>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+              <div style="margin: 0px 0px 0px 5%" class="span2">
+                <label for="location" class="form-control-label">By Location</label>
+                <br/>
+                <label class="checkbox">
+                  <input id="pr" type="checkbox" name="optionsCheckboxList1" value="option1">
+                  Puerto Rico
+                </label>
+
+                <label class="checkbox">
+                  <input id="us" type="checkbox" name="optionsCheckboxList1" value="option2">
+                United States
+                </label>
+              </div>
+            </div>
+
+  <div class="col">
+              <div class="form-group">
+                <div class="row">
+                <div style="margin: 0px 0px 0px 5%" class="span2">
+                  <label for="location" class="form-control-label">By Gender</label>
+                  <br/>
+                  <label class="checkbox">
+                    <input id="male" type="checkbox" name="optionsCheckboxList2" value="option1">
+                    Male
+                  </label>
+                  <br/>
+                  <label class="checkbox">
+                    <input id="female" type="checkbox" name="optionsCheckboxList2" value="option2">
+                  Female
+                  </label>
+                  <br/>
+                  <label class="checkbox">
+                    <input id="other" type="checkbox" name="optionsCheckboxList2" value="option3">
+                    Other
+                  </label>
+                </div>
+                </div>
+            </div>
+          </div>
+
+<div class="col">
+          <div class="form-group">
+            <div class="row">
+            <div style="margin: 0px 0px 0px 5%" class="span2">
+              <label for="location" class="form-control-label">By Client Type:</label>
+              <br/>
+              <label class="checkbox">
+                <input id="accountants" type="checkbox" name="optionsCheckboxList3" value="option1">
+                Accountants
+              </label>
+              <br/>
+              <label class="checkbox">
+                <input id="third_parties" type="checkbox" name="optionsCheckboxList3" value="option2">
+              Third parties
+              </label>
+              <br/>
+              <label class="checkbox">
+                <input id="taxpayers" type="checkbox" name="optionsCheckboxList3" value="option3">
+                Taxpayers
+              </label>
+            </div>
+            </div>
+          </div>
+        </div>
+
+              </div>
+
+          </div>
+
+
+      <!-- <div style="margin: -6% 0px 0px 2%" class="span2" class="form-group">
+        <label for="formGroupExampleInput">By Age:</label>
+        <div class="row">
+          <div class="col">
+            <label for="formGroupExampleInput">From:</label>
+            <input type="number" min="1" max="110" class="form-control" id="formGroupExampleInput" placeholder="15">
+          </div>
+          <div class="col">
+            <label for="formGroupExampleInput">To:</label>
+            <input type="number" class="form-control" id="formGroupExampleInput" placeholder=" 30">
+          </div>
+      </div>
+      </div> -->
+  <br/>
+
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">Include Project Attachments<strong style="color: red;"> *</strong></label>
+        <select class="form-control" id="email_attachments">
+          <option value='yes'>Yes</option>
+          <option value='no'>No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+      <label for="exampleFormControlSelect2">Include Project Text<strong style="color: red;"> *</strong></label>
+      <select class="form-control" id="email_text">
+        <option value='yes'>Yes</option>
+        <option value='no'>No</option>
+      </select>
+    </div>
+
+    </form>
+
+        </div>
+        <div class="modal-footer">
+        	<button id="changeEmailSettings"  title="Are you sure?" onclick="change_email_settings()" type="button" type="button" data-trigger="manual" class="btn btn-secondary" data-container="body" data-html="true" data-toggle="popover" data-placement="top"">Change</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+    <img  class="rounded-circle"></img>
+  </div>
+  
+  	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+         		 <a class="btn btn-secondary" href="/userLogout">Logout</a>
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            
+          </div>
+        </div>
+      </div>
+	</div>
+
+    
+      <!-- Bootstrap core JavaScript-->
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+    
+    <!-- Core plugin JavaScript-->
+    <script src="static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    
+    
+    <!-- Custom scripts for all pages, se encarga de que el sidebar sea hideble-->
+    <script src="static/js/sb-admin.min.js"></script>
+    
+     <script>
+     
+     function change_email_settings(){
+    	 document.getElementById("changeEmailSettings").setAttribute('data-content',`
+				  <button class="btn  btn-secondary btn-xs" onClick="changeEmailData()" type="button" >Confirm</button>
+				  	<button id="popOverCancel"  onClick="closeNewProjectPopOver()" class="btn  btn-secondary btn-xs" type="button" >Cancel</button> 
+		 `);
+    	 $('#changeEmailSettings').popover('show');
+     }
+     
+     function changeEmailData(){
+    	 
+    	 
+    	 var temp_dat = {};
+    	 
+    	 var location = [];
+		 if(document.getElementById("pr").checked){
+			 location.push("pr");
+	   }
+    	 if(document.getElementById("us").checked){
+			 location.push("us");
+	   }
+    	 temp_dat['location'] = location;
+    	 
+    	 var gender = [];
+		 if(document.getElementById("female").checked){
+			 gender.push("female");
+	   }
+    	 if(document.getElementById("male").checked){
+    		 gender.push("male");
+	   }
+    	 if(document.getElementById("other").checked){
+    		 gender.push("other");
+	   }
+    	 temp_dat['gender'] = gender;
+    	 
+    	 var client_type = [];
+    	 if(document.getElementById("taxpayers").checked){
+    		 client_type.push("taxpayers");
+	   }
+    	 if(document.getElementById("accountants").checked){
+    		 client_type.push("accountants");
+	   }
+    	 if(document.getElementById("third_parties").checked){
+    		 client_type.push("third_parties");
+	   }
+    	 temp_dat['client_type'] = client_type;
+    	 
+    	 if(document.getElementById('email_attachments').value == 'yes'){
+    		 temp_dat['email_attachments'] = 'true';
+    	 }else{
+    		 temp_dat['email_attachments'] = 'false';
+    	 }
+    	 
+    	 if(document.getElementById('email_text').value == 'yes'){
+    		 temp_dat['email_text'] = 'true';
+    	 }else{
+    		 temp_dat['email_text'] = 'false';
+    	 }
+    	 
+    	 temp_dat['id'] = document.getElementById('project_id').value;
+    	 
+    	
+    	 
+    	 
+    	 var http = new XMLHttpRequest();
+		  http.onreadystatechange = function(){
+		      if(this.readyState == 4 && this.status == 200){
+		    	  
+		    	  window.location.reload();
+		    	  
+		    	  
+		      }else if (this.readyState == 4){
+		    	  
+		      }  
+		  };
+		  http.open("POST", "/addSettings", true);
+		  http.setRequestHeader("Content-type", "application/json");
+		  http.send(JSON.stringify(temp_dat));
+    	 
+     }
+     
+     function closeNewProjectPopOver(){
+			
+			$('#changeEmailSettings').popover('hide');
+		}
+     
+    function fileselected(){
+    	temp = document.getElementById("file").value;
+    	file_name = temp.substring(temp.indexOf("fakepath\\") + 10);
+    	document.getElementById("file").setAttribute('placeholder', file_name);
+    	
+    	temp_string = `
+			<a class="list-group-item ">
+				
+          
+               	<div class="my-auto"> ` + file_name + `
+               	
+             
+         
+	 			</a>
+		`
+		
+    	document.getElementById("attachments").innerHTML += temp_string;
+
+    }
+    
+    
+    
+    
+    
+     function showEditEmail(id){
+    	 alert("entrando")
+    	 //look for data
+			var http = new XMLHttpRequest();
+			  http.onreadystatechange = function(){
+			      if(this.readyState == 4 && this.status == 200){
+			    	  var settings_data = JSON.parse(this.responseText);
+			    	
+			    	  for(i = 0; i < settings_data.location.length; i++){
+			    		  document.getElementById(settings_data.location[i]).checked = true;
+			    	  }
+			    	  for(i = 0; i < settings_data.gender.length; i++){
+			    		  document.getElementById(settings_data.gender[i]).checked = true;
+			    	  }
+			    	  for(i = 0; i < settings_data.client_type.length; i++){
+			    		  document.getElementById(settings_data.client_type[i]).checked = true;
+			    	  }
+				 			if(ettings_data.email_attachments == 'true'){
+				 				document.getElementById('email_attachments').value = 'yes';
+				 			}else{
+				 				document.getElementById('email_attachments').value = 'no';
+				 			}
+				 			if(ettings_data.email_text == 'true'){
+				 				document.getElementById('email_text').value = 'yes';
+				 			}else{
+				 				document.getElementById('email_text').value = 'no';
+				 			}
+
+				    	  
+	
+			    	  
+			      }else if (this.readyState == 4){
+			    	  
+			      }  
+			  };
+			  http.open("GET", "/getemaildata/" + id, true);
+			  http.send(null);
+    	 
+    	 $('#emailSettingModal').modal('show');
+     }
+     //set project name
+    	var actual_project_data = "";
+ 			var http2 = new XMLHttpRequest();
+ 			http2.onreadystatechange = function(){
+   			if(this.readyState == 4 && this.status == 200){	
+    			window.actual_project_data = JSON.parse(this.responseText);
+
+    			document.getElementById("project_name").innerHTML = window.actual_project_data.name;
+    			var temp_string = "";
+    			for(i = 0; i < actual_project_data.media_channel.length; i++){
+    				media_btn = (actual_project_data.media_channel[i] == 'email') ? `</div><div class="col-sm-2 my-auto"><button id="email_settings"  class="btn  btn-outline-primary btn-sm" onClick=` + "\"showEditEmail('" +   actual_project_data.id + "')\"" + ` type="button" ><i class="fa fa-cog"></i>Settings</button></div>` : "</div>";
+              		
+    				temp_string += `
+    					<a class="list-group-item ">
+    						
+		              	<div class="row">
+			               	<div class="col-sm-9 my-auto"> ` + actual_project_data.media_channel[i] + media_btn + `
+			               	
+			             
+			          </div>
+				 			</a>
+    				`
+    			}
+    			document.getElementById("marketing_channel_list").innerHTML = temp_string;
+    			document.getElementById("person2approve").innerHTML += actual_project_data.person_to_approve + ":";
+ 				}else if (this.readyState == 4){
+	 	  
+	 			}  
+			};
+			http2.open("GET", "/getProjectInView", true);
+			http2.send(null);
+	
+     
+		var userProjects = [];
+
+		var http = new XMLHttpRequest();
+			http.onreadystatechange = function(){
+		   if(this.readyState == 4 && this.status == 200){	
+		    	window.userProjects = JSON.parse(this.responseText);
+		    	setProjects();
+	     }else if (this.readyState == 4){
+			 	  
+			 }  
+			};
+			http.open("GET", "/getProjectsForUser", true);
+			http.send(null);
+			
+	
+		
+
+		
+		
+		function setProjects(){
+			html_string_projects = "";
+			
+			
+			html_string_projects += `
+		    	 <div class="list-group list-group-flush small">   	
+		     	`;	
+		     	
+		  for(i in userProjects){
+			  document.getElementById("project_id").value = userProjects[i].id;
+			  document.getElementById("current_name").innerHTML = userProjects[i].current_user_name;
+			  document.getElementById("profile_pic").src = 'static/img/' + userProjects[i].current_user_name + '.jpg';
+			  var temp_deadline = (userProjects[i].deadline == "") ? "None" : userProjects[i].deadline;
+			  html_string_projects += `
+		        	 <a class="list-group-item list-group-item-action">
+							  <div class="media">
+			                  <div class="media-body">
+			                  <div class="row">
+				               	<div class="col-sm-12 my-auto">
+				               		<div class="row">
+				               			<div class="col-sm-4">
+				                  		<div class="h4 mb-0 text-primary">` + userProjects[i].name + `</div>
+				                  		<div class="small text-muted">Owner: ` + userProjects[i].owner + `</div>
+				                  	</div>
+				                  	<div class="col-sm-2">
+			                  			<div class="h4 mb-0 ">` +  temp_deadline + `</div>
+			                  		</div>
+			                  		<div class="col-sm-4">
+				                  		<div class="h4 mb-0 ">
+			                  	`;
+			   
+			  for(j in userProjects[i].members_profile_pic) {
+					html_string_projects += `
+				            		<img class="nav-item rounded-circle d-flex" data-toggle="tooltip"  id="profile_pic" style="width: 8%; float: left" src= ` + "\"" +   userProjects[i].members_profile_pic[j] + "\"" + `></img>
+				            		`;    
+				            }  
+			   var temp_delete_visibility = (userProjects[i].current_user == userProjects[i].owner)? " data-trigger='manual' title='Are you sure?'" : "disabled data-toggle='tooltip' title='Just owners can delete projects'";
+			   var temp_edit_visibility = (userProjects[i].current_user == userProjects[i].owner)? "" : "disabled data-toggle='tooltip' title='Just owners can edit projects'";
+			   
+			   html_string_projects +=	`
+			   											</div>
+			   										</div>
+			   										<div class="col-sm-2">
+							                  		<div class="h4 mb-0 ">
+							                  		<button style="z-index: 1024" id= ` + "'editProject" +   userProjects[i].id + "'" +   temp_edit_visibility + ` class="btn  btn-outline-primary btn-xs" onClick=` + "\"showEditProject('" +   userProjects[i].id + "')\"" + ` type="button" ><i class="fa fa-edit"></i>Edit</button> 
+							                  		<button  id= ` + "'deleteProject" +   userProjects[i].id + "'" +  temp_delete_visibility +` class="btn  btn-outline-danger btn-xs"  data-container="body" data-html="true" data-toggle="popover" data-placement="top" href="#" onClick= ` + "\"deleteProjectPopOver('" +   userProjects[i].id + "')\"" + ` type="button" ><i class="fa fa-trash"></i>Delete</button>
+			   														</div>
+			   										</div>
+				   								</div>
+			                  </div>
+			                  </div>
+			                  </div>
+			           </div>
+		           </a>
+		            `;
+		       	
+		     }
+		  html_string_projects += `</div>`;
+		}
+		 
+	
+		$(function () {
+			  $('[data-toggle="popover"]').popover(
+					  
+					  {
+						  html: true,
+						  
+						}
+
+			  )
+			});
+		
+
+
+
+			
+
+
+ </script>
+ 
+ 
+ <!-- Optional JavaScript -->
+   <!-- ---------------------- -->
+  <!--   DEPENDENCIAS PARA EL MULTIPLE SELECT -->
+  <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>	
+ 
+  
+</body>
+
+</html>

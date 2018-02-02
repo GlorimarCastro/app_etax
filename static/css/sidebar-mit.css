@@ -5,3 +5,8 @@
 .sidebar2:hover, .sidebar2:focus {
     background-color: #164987;
 }
+.sticky {
+  position: fixed;
+  
+  width: 100%;
+}

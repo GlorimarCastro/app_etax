@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+  <body>
+    <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Send Email</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+<!-- <a href="#" data-toggle="tooltip" title="Hooray!">Required*</a> -->
+<label for="required" class="form-control-label">
+  <strong style="color: red;">Required*</strong>
+</label>
+<br/>
+<br/>
+<label for="recipient-name" class="form-control-label">
+  <span data-toggle="tooltip" data-placement="right" title="Default send to all">Filter Recipients:</span>
+  <p style="font-size: 12px; margin:0 0 1% 0">Select all the filters that apply</p>
+</label>
+            <div class="form-group">
+              <div class="row">
+                <div class="col">
+              <div style="margin: 0px 0px 0px 5%" class="span2">
+                <label for="location" class="form-control-label">By Location</label>
+                <br/>
+                <label class="checkbox">
+                  <input type="checkbox" name="optionsCheckboxList1" value="option1">
+                  Puerto Rico
+                </label>
+
+                <label class="checkbox">
+                  <input type="checkbox" name="optionsCheckboxList1" value="option2">
+                United States
+                </label>
+              </div>
+            </div>
+
+  <div class="col">
+              <div class="form-group">
+                <div class="row">
+                <div style="margin: 0px 0px 0px 5%" class="span2">
+                  <label for="location" class="form-control-label">By Gender</label>
+                  <br/>
+                  <label class="checkbox">
+                    <input type="checkbox" name="optionsCheckboxList2" value="option1">
+                    Male
+                  </label>
+                  <br/>
+                  <label class="checkbox">
+                    <input type="checkbox" name="optionsCheckboxList2" value="option2">
+                  Female
+                  </label>
+                  <br/>
+                  <label class="checkbox">
+                    <input type="checkbox" name="optionsCheckboxList2" value="option3">
+                    Other
+                  </label>
+                </div>
+                </div>
+            </div>
+          </div>
+
+<div class="col">
+          <div class="form-group">
+            <div class="row">
+            <div style="margin: 0px 0px 0px 5%" class="span2">
+              <label for="location" class="form-control-label">By Client Type:</label>
+              <br/>
+              <label class="checkbox">
+                <input type="checkbox" name="optionsCheckboxList3" value="option1">
+                Accountants
+              </label>
+              <br/>
+              <label class="checkbox">
+                <input type="checkbox" name="optionsCheckboxList3" value="option2">
+              Third parties
+              </label>
+              <br/>
+              <label class="checkbox">
+                <input type="checkbox" name="optionsCheckboxList3" value="option3">
+                Taxpayers
+              </label>
+            </div>
+            </div>
+          </div>
+        </div>
+
+              </div>
+
+          </div>
+
+
+      <div style="margin: -6% 0px 0px 2%" class="span2" class="form-group">
+        <label for="formGroupExampleInput">By Age:</label>
+        <div class="row">
+          <div class="col">
+            <label for="formGroupExampleInput">From:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="15">
+          </div>
+          <div class="col">
+            <label for="formGroupExampleInput">To:</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder=" 30">
+          </div>
+      </div>
+      </div>
+  <br/>
+</br>
+
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">Include Project Attachments<strong style="color: red;"> *</strong></label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+      <label for="exampleFormControlSelect2">Include Project Text<strong style="color: red;"> *</strong></label>
+      <select class="form-control" id="exampleFormControlSelect2">
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+
+    </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send</button>
+        </div>
+      </div>
+    </div>
+    <img  class="rounded-circle"></img>
+  </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script> $('#exampleModal').on('shown.bs.modal', function () {
+             $('#myInput').focus()})
+    </script>
+
+    <script>
+             $(document).ready(function(){
+             $('[data-toggle="tooltip"]').tooltip();
+             });
+   </script>
+  </body>
+</html>
