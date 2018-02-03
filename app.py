@@ -108,7 +108,7 @@ class Projects:
     projects.append({'owner': 'glorimar@etax.com', 'members': ['glorimar@etax.com', 'janire@etax.com'], 'deadline': "May-20-18", 'id': '1',
                               'members_profile_pic': ['static/img/glorimar.jpg', 'static/img/Janire.jpg'], 'month_num': '05',
                               'media_channel': ['facebook', 'email'], 'person_to_approve': 'Gloribel',
-                              'importance': 'high', 'tasks': [], 'type': "marketing", 'name': 'Consejo Tributoraio 2018', 'description': 'prueba 1', 'completed': 'False'})
+                              'importance': 'high', 'tasks': [], 'type': "marketing", 'name': 'Consejo Tributario 2018', 'description': 'prueba 1', 'completed': 'False'})
     projects.append({'owner': 'graciany@etax.com', 'members': ['graciany@etax.com', 'glorimar@etax.com', 'janire@etax.com'], 'deadline': "Aug-20-18",  'id': "2",
                               'members_profile_pic': ['static/img/glorimar.jpg', 'static/img/graciany2', 'static/img/Janire.jpg'], 'month_num': '08',
                               'media_channel': ['facebook', 'email'],'person_to_approve': 'Gloribel',
