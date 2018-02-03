@@ -182,13 +182,13 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 
 
 			<div class="row" >
-				<div class="col-sm-12" style=" z-index: 1024; background-color: #FFFFFF; margin: -1% 0 0 0%;" >
+				<div class="col-sm-7" style=" z-index: 1024; background-color: #FFFFFF; margin: -1% 0 0 0%;" >
 					<div class="row">
 					
-						<div class="col-sm-8 mb-0 mt-4" style="">
+						<div class="col-sm-9 mb-0 mt-4" style="">
 				  		<h2>Projects</h2>
 				  	</div>
-				  	<div class="col-sm-4 mb-0 mt-4">
+				  	<div class="col-sm-3 mb-0 mt-4">
 				  		<a class="nav-link" data-toggle="modal" data-target="#addProjectModal">
 				  			<button type="button" class="btn btn-outline-primary pull-right">+ Add Project</button>
 				  		</a>
@@ -202,10 +202,10 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 					   		<div class="col-sm-4">
 					   			<div class="mb-0 ">Name</div>
 					   		</div>
-					   		<div class="col-sm-2">
+					   		<div class="col-sm-4">
 					   			<div class="mb-0 text-left">Due Date</div>
 					   		</div>
-					   		<div class="col-sm-4">
+					   		<div class="col-sm-2">
 					   			<div class="mb-0 text-left">Members</div>
 					   		</div>
 					  	</div>
@@ -220,7 +220,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			<!-- -------------------- -->   
    
 			<div class="row">
-				<div class="col-md-12 pre-scrollable " style="margin-top: 0%; min-height: 75vh">
+				<div class="col-md-7 pre-scrollable " style="margin-top: 0%; min-height: 75vh">
 
 					<div class=" card mb-3" id="projects">
 					</div>
@@ -856,7 +856,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 							  <div class="media">
 			                  <div class="media-body">
 			                  <div class="row">
-				               	<div class="col-sm-12 my-auto">
+				               	<div class="col-sm-	 my-auto">
 				               		<div class="row">
 				               			<div class="col-sm-4" onclick= ` + "\"cambiaPagina('" +  userProjects[i].name + "','" +  userProjects[i].id + "')\""  + `>
 				               			
@@ -864,7 +864,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 				                  		<div class="small text-muted">Owner: ` + userProjects[i].owner + `</div>
 				                  	
 				                  	</div>
-				                  	<div class="col-sm-2" onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>
+				                  	<div class="col-sm-4 " onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>
 			                  			<div class="h4 mb-0 ">` +  temp_deadline + `</div>
 			                  		</div>
 			                  		<div class="col-sm-4" onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>
@@ -873,21 +873,14 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			   
 			  for(j in userProjects[i].members_profile_pic) {
 					html_string_projects += `
-				            		<img class="nav-item rounded-circle d-flex" data-toggle="tooltip"  id="profile_pic" style="width: 8%; float: left" src= ` + "\"" +   userProjects[i].members_profile_pic[j] + "\"" + `></img>
+				            		<img class="nav-item rounded-circle d-flex" data-toggle="tooltip" title=` + "\"" +   userProjects[i].members[j] + "\"" + ` id="profile_pic" style="width: 15%; float: left" src= ` + "\"" +   userProjects[i].members_profile_pic[j] + "\"" + `></img>
 				            		`;    
 				            }  
-			   var temp_delete_visibility = (userProjects[i].current_user == userProjects[i].owner)? " data-trigger='manual' title='Are you sure?'" : "disabled data-toggle='tooltip' title='Just owners can delete projects'";
-			   var temp_edit_visibility = (userProjects[i].current_user == userProjects[i].owner)? "" : "disabled data-toggle='tooltip' title='Just owners can edit projects'";
 			   
 			   html_string_projects +=	`
 			   											</div>
 			   										</div>
-			   										<div class="col-sm-2">
-							                  		<div class="h4 mb-0 ">
-							                  		<button id= ` + "'editProject" +   userProjects[i].id + "'" +   temp_edit_visibility + ` class="btn  btn-outline-primary btn-xs" onClick=` + "\"showEditProject('" +   userProjects[i].id + "')\"" + ` type="button" ><i class="fa fa-edit"></i>Edit</button> 
-							                  		<button id= ` + "'deleteProject" +   userProjects[i].id + "'" +  temp_delete_visibility +` class="btn  btn-outline-danger btn-xs"  data-container="body" data-html="true" data-toggle="popover" data-placement="top" href="#" onClick= ` + "\"deleteProjectPopOver('" +   userProjects[i].id + "')\"" + ` type="button" ><i class="fa fa-trash"></i>Delete</button>
-			   														</div>
-			   										</div>
+			   										
 				   								</div>
 			                  </div>
 			                  </div>
