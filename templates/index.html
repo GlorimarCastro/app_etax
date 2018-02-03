@@ -175,15 +175,15 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 
 
 	<div class="content-wrapper">
-		<div class="container-fluid">
+		<div class="container-fluid" >
 			<!-- -------------------- -->
 			<!--   Header statuco -->
 			<!-- -------------------- -->
 
 
 			<div class="row" >
-				<div class="col-sm-7" style=" z-index: 1024; background-color: #FFFFFF; margin: -1% 0 0 0%;" >
-					<div class="row">
+				<div class="col-sm-7"  style=" float:none; margin: 0 auto" style=" z-index: 1024" >
+					<div class="row" >
 					
 						<div class="col-sm-9 mb-0 mt-4" style="">
 				  		<h2>Projects</h2>
@@ -194,15 +194,22 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 				  		</a>
 				  	</div>
 					</div>
-					<div clas="row">
+
+				</div>
+			</div>
+			<hr>
+			
+			<div class="row">
+			<div class="col-sm-7"  style=" float:none; margin: 0 auto" style=" z-index: 1024" >
+			<div clas="row">
 					  <div class="mb-0 mt-4"">
 					  
 					  
 					   	<div class="row">
-					   		<div class="col-sm-4">
+					   		<div class="col-sm-6">
 					   			<div class="mb-0 ">Name</div>
 					   		</div>
-					   		<div class="col-sm-4">
+					   		<div class="col-sm-2">
 					   			<div class="mb-0 text-left">Due Date</div>
 					   		</div>
 					   		<div class="col-sm-2">
@@ -212,7 +219,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 					  	<hr class="mt-2">
 						</div>
 				  </div>
-				</div>
+			</div>
 			</div>
 	
  			<!-- -------------------- -->
@@ -220,7 +227,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			<!-- -------------------- -->   
    
 			<div class="row">
-				<div class="col-md-7 pre-scrollable " style="margin-top: 0%; min-height: 75vh">
+				<div class="col-md-7   " style="float:none; margin: 0 auto"  style="margin-top: 0%; min-height: 75vh">
 
 					<div class=" card mb-3" id="projects">
 					</div>
@@ -858,13 +865,13 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			                  <div class="row">
 				               	<div class="col-sm-	 my-auto">
 				               		<div class="row">
-				               			<div class="col-sm-4" onclick= ` + "\"cambiaPagina('" +  userProjects[i].name + "','" +  userProjects[i].id + "')\""  + `>
+				               			<div class="col-sm-6" onclick= ` + "\"cambiaPagina('" +  userProjects[i].name + "','" +  userProjects[i].id + "')\""  + `>
 				               			
 				                  		<div class="h4 mb-0 text-primary">` + userProjects[i].name + `</div>
 				                  		<div class="small text-muted">Owner: ` + userProjects[i].owner + `</div>
 				                  	
 				                  	</div>
-				                  	<div class="col-sm-4 " onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>
+				                  	<div class="col-sm-2 " onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>
 			                  			<div class="h4 mb-0 ">` +  temp_deadline + `</div>
 			                  		</div>
 			                  		<div class="col-sm-4" onclick= ` + "\"cambiaPagina(" +  userProjects[i].name + "," +  userProjects[i].id + ")\""  + `>

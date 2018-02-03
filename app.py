@@ -108,19 +108,19 @@ class Projects:
     projects.append({'owner': 'glorimar@etax.com', 'members': ['glorimar@etax.com', 'janire@etax.com'], 'deadline': "May-20-18", 'id': '1',
                               'members_profile_pic': ['static/img/glorimar.jpg', 'static/img/Janire.jpg'], 'month_num': '05',
                               'media_channel': ['facebook', 'email'], 'person_to_approve': 'Gloribel',
-                              'importance': 'high', 'tasks': [], 'type': "marketing", 'name': 'project1', 'description': 'prueba 1', 'completed': 'False'})
+                              'importance': 'high', 'tasks': [], 'type': "marketing", 'name': 'Consejo Tributoraio 2018', 'description': 'prueba 1', 'completed': 'False'})
     projects.append({'owner': 'graciany@etax.com', 'members': ['graciany@etax.com', 'glorimar@etax.com', 'janire@etax.com'], 'deadline': "Aug-20-18",  'id': "2",
                               'members_profile_pic': ['static/img/glorimar.jpg', 'static/img/graciany2', 'static/img/Janire.jpg'], 'month_num': '08',
                               'media_channel': ['facebook', 'email'],'person_to_approve': 'Gloribel',
-                              'importance': 'low', 'tasks': [], 'type': "marketing", 'name': 'project 2', 'description': 'prueba 2', 'completed': 'False'})
+                              'importance': 'low', 'tasks': [], 'type': "marketing", 'name': 'Comienzo de Temporada', 'description': 'prueba 2', 'completed': 'False'})
     projects.append({'owner': 'graciany@etax.com', 'members': ['graciany@etax.com', 'glorimar@etax.com', 'janire@etax.com'], 'deadline': "Jun-20-18",  'id': "3",
                               'members_profile_pic': ['static/img/glorimar.jpg', 'static/img/graciany2', 'static/img/Janire.jpg'], 'month_num': '06',
                               'media_channel': ['facebook', 'email'], 'person_to_approve': 'Gloribel',
-                              'importance': 'high', 'tasks': [], 'type': "marketing", 'name': 'project3', 'description': 'prueba 3', 'completed': 'False'})
+                              'importance': 'high', 'tasks': [], 'type': "marketing", 'name': 'Seminario Etica', 'description': 'prueba 3', 'completed': 'False'})
     projects.append({'owner': 'graciany@etax.com', 'members': ['graciany@etax.com', 'glorimar@etax.com', 'janire@etax.com', 'gloribel@etax.com'], 'deadline': "Mar-20-18", 'id': "4",
                               'members_profile_pic': ['static/img/glorimar.jpg', 'static/img/graciany2', 'static/img/Janire.jpg', 'static/img/Gloribel.jpg'],
                               'media_channel': ['facebook', 'email'], 'month_num': '03', 'person_to_approve': 'Gloribel',
-                              'importance': 'medium', 'tasks': [], 'type': "marketing", 'name': 'project4', 'description': 'prueba 4', 'completed': 'False'})
+                              'importance': 'medium', 'tasks': [], 'type': "marketing", 'name': 'Seminario Cambios Contributivos', 'description': 'prueba 4', 'completed': 'False'})
         
         
     def __init__(self, project_name):
@@ -227,7 +227,50 @@ class Projects:
         
         self.projects.append(temp_json)
         print self.projects
+    
+    @classmethod
+    def editProject(self, project_data):
+        temp_json = {'owner': current_user.email, 'person_to_approve': project_data['person_to_approve'].encode("utf-8"),
+                    'importance':  project_data['importance'].encode("utf-8"), 'tasks': [], 'type': "marketing", 'name':  project_data['name'].encode("utf-8"), 'description':  project_data['description'].encode("utf-8"), 'completed': 'False'
+        }
         
+        temp_media = []
+        for c in  project_data['media_channel']:
+            temp_media.append(c.encode("utf-8"))
+        temp_json['media_channel'] = temp_media
+        temp_pic = [];
+        for m in project_data['members']:
+            temp_pic.append('static/img/' + m.encode("utf-8") + '.jpg')
+        temp_json['members_profile_pic'] = temp_pic
+        
+        temp_members = []
+        for m in project_data['members']:
+            temp_members.append(User.getEmailFromName(m.encode("utf-8")))
+            
+        already_in = False
+        for m in temp_members:
+            if m == current_user.email:
+                already_in = True
+        if not already_in:
+            temp_members.append(current_user.email)
+            temp_pic.append('static/img/' + current_user.name + '.jpg')
+            
+        temp_json['members'] = temp_members
+        temp_json['id'] = project_data['id'].encode("utf-8");
+        Projects.project_id_flag += 1
+        temp_json['members_profile_pic'] = temp_pic
+        
+        if project_data['deadline'] == "":
+            temp_json['deadline']  = ""
+        else:
+            months = ["", "Jan", "Feb",'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            print 
+            temp_json['deadline'] = months[int(project_data['deadline'][5:7].encode("utf-8"))] + '-' + project_data['deadline'][8:10].encode("utf-8") + "-" + project_data['deadline'][2:4].encode("utf-8")
+            temp_json['month_num'] = project_data['deadline'][5:7].encode("utf-8")
+        
+        self.deleteProject(temp_json['id'])
+        self.projects.append(temp_json)
+        print self.projects   
        
     @classmethod
     def deleteProject(self, id):
@@ -268,15 +311,27 @@ class Projects:
 def add_new_project():
     data = request.get_json(force=True)
     Projects.addProject( data)
-    return ('se anadio')        
+    return ('se anadio')   
+
+@app.route('/editProject', methods=['POST'])
+def edit_project():
+    data = request.get_json(force=True)
+    Projects.editProject( data)
+    return ('se anadio')      
+
+
+
+
 
 @app.route('/deleteProject', methods=['POST'])
 def delete_project():
-    
     data = request.get_json(force=True)
     print "deleting project " + data['id']
     Projects.deleteProject( data['id'])
     return ('se borro') 
+
+
+
 
 @app.route('/getProjectData/<id>', methods=['GET'])
 def getProjectData(id):
@@ -296,10 +351,10 @@ def getProjectView():
 
 @app.route('/getProjectInView')
 def getProjectInView():
-    print "hy dfjoriejgoarjgopaergnjvoearijgvo"
-    print current_projects[current_user.email]
-    print Projects.getByID(current_projects[current_user.email])
-    return jsonify(Projects.getByID(current_projects[current_user.email])), 200
+    temp = Projects.getByID(current_projects[current_user.email].encode("utf-8"))
+    temp['current_user'] = current_user.email
+    print temp
+    return jsonify(temp), 200
  
  
  

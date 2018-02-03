@@ -9,6 +9,9 @@
   <meta name="author" content="">
   <title>E-tax En Familia</title>
   
+  
+    
+    
   <!-- Bootstrap CSS -->
   <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   
@@ -30,9 +33,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     
-   
-
-  
+	
 <style>
 
 /*
@@ -180,68 +181,152 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			<!-- STATIC HEADER -->
 			<input id="project_id" style="display:none">
 				<div class="row" >
-				<div class="col-sm-12" style=" z-index: 1024; background-color: #FFFFFF; margin: -1% 0 0 0%;" >
+				<div class="col-sm-7" style=" float:none; margin: 0 auto"  z-index: 1024; background-color: #FFFFFF; margin: -1% 0 0 0%;" >
 					<div class="row">					
-						<div class="col-sm-12 mb-0 mt-4" style="">
+						<div class="col-sm-9 mb-0 mt-4" style="">
 				  		<h2>Projects/<a id="project_name"></a></h2>
 				  	</div>
-				  	<!-- <div class="col-sm-4 mb-0 mt-4">
-				  		<a class="nav-link" data-toggle="modal" data-target="#addProjectModal">
+				  	 <div class="col-sm-3 mb-0 mt-4">
+				  	 <div class="h4 mb-0 ">
+							  <button style="z-index: 1024" id="editBtn" class="btn  btn-outline-primary btn-xs" onClick="" type="button" ><i class="fa fa-cog"></i>Settings</button> 
+							  <button  id="deleteBtn" class="btn  btn-outline-danger btn-xs"  data-container="body" data-html="true"  data-placement="top" href="#" onClick=""  type="button" ><i class="fa fa-trash"></i>Delete</button>
+			   			</div>
+				  		<!-- <a class="nav-link" data-toggle="modal" data-target="#addProjectModal">
 				  			<button type="button" class="btn btn-outline-primary pull-right">+ Add Project</button>
-				  		</a>
-				  	</div> -->
+				  		</a> -->
+				  	</div> 
 
 				</div>
 			</div>
 			</div>
+			
+			<hr></hr>
 			<div class ="row">
 			
 				<!-- MARKETING MATERIAL -->
 				<div class="col-sm-7">
-					<div class=" card mb-3" id="marketing_material">
+					<div class=" card mb-3 mt-3" id="marketing_material">
 						<div class="card-header"> Marketing Material</div>
 						<div class="card-body">
-						
-							<div class=" card mb-3" id="marketing_material_text">
-								<div class="card-header"> Text</div>
-								<div class="card-body">
-									 <textarea class="form-control" rows="5" id="comment" placeholder="Write some text"></textarea>
-								</div>
+						<div class="row">
+							<div  class="col-sm-10">
+								<h4>Text:</h4>
+							</div>
+							<div  class="col-sm-2">
+								<button style="z-index: 1024" id="editTextBtn" class="btn  btn-outline-primary btn-sm" onClick="editText()" type="button" ><i class="fa fa-edit"></i>Edit</button> 
+							  <button style="display:none"  id="stopeditTextBtn" class="btn  btn-outline-primary btn-sm" onClick="stopeditText()" type="button" ><i class="fa fa-edit"></i>Finish</button> 
+							  
 							</div>
 							
-							<div class=" card mb-3" id="marketing_material_attachments">
-								<div class="card-header"> Attachments</div>
-								<div class="card-body">
-									
-										<div class="card-body">
-										<label class="custom-file" style="width: 100%">
+						</div>
+							
+							
+							<br>
+							<div id="previewtext">
+							<p class="card-text"><b>Consejo tributario :</b>
+      A medida que las personas se preparan para presentar sus impuestos, hay cosas que considerar. Querrán determinar si necesitan presentar y la mejor manera de hacerlo.<br/><br/>
+      Aquí hay tres cosas que las personas deben tener en cuenta a medida que se preparan para presentar sus impuestos:<br/><br/>
+      Quién debe presentar. En la mayoría de los casos, los ingresos, el estado civil tributario y la edad determinan si un contribuyente debe presentar una declaración de impuestos. Se pueden aplicar otras reglas si el contribuyente trabaja por cuenta propia o si es dependiente de otra persona. Por ejemplo, si un contribuyente es soltero y menor de 65 años, debe presentar una declaración si su ingreso fue de al menos $10,400. Hay otras instancias en las que un contribuyente debe presentar una declaración. Vaya a IRS.gov/filing y luego haga clic en “Español” para obtener más información.<br/><br/>
+      Presentación para obtener un reembolso. Aunque un contribuyente no tenga que presentar una declaración, deben presentar una declaración de impuestos si puede recibir dinero de vuelta. Si un contribuyente responde "sí" a alguna de estas preguntas, es posible que se le deba un reembolso:<br/><br/>
+      ¿Mi empleador retuvo impuestos federales de mi sueldo?<br/>
+      ¿Realicé pagos de impuestos estimados?<br/>
+      ¿Pagué de más el año pasado y lo apliqué al impuesto de este año?<br/>
+      ¡Mas info vaya al irs.gov o venga a Etax en familia e informese con los que saben de verdad!<br/>
+    
+							</div>
+							
+							<textarea style="display:none; height: 500px;" class="form-control" rows="5" id="textareatext" placeholder="Write some text">Consejo tributario :
+      A medida que las personas se preparan para presentar sus impuestos, hay cosas que considerar. Querrán determinar si necesitan presentar y la mejor manera de hacerlo.
+
+      Aquí hay tres cosas que las personas deben tener en cuenta a medida que se preparan para presentar sus impuestos:
+
+      Quién debe presentar. En la mayoría de los casos, los ingresos, el estado civil tributario y la edad determinan si un contribuyente debe presentar una declaración de impuestos. Se pueden aplicar otras reglas si el contribuyente trabaja por cuenta propia o si es dependiente de otra persona. Por ejemplo, si un contribuyente es soltero y menor de 65 años, debe presentar una declaración si su ingreso fue de al menos $10,400. Hay otras instancias en las que un contribuyente debe presentar una declaración. Vaya a IRS.gov/filing y luego haga clic en “Español” para obtener más información.
+
+
+      Presentación para obtener un reembolso. Aunque un contribuyente no tenga que presentar una declaración, deben presentar una declaración de impuestos si puede recibir dinero de vuelta. Si un contribuyente responde "sí" a alguna de estas preguntas, es posible que se le deba un reembolso:<br/><br/>
+      ¿Mi empleador retuvo impuestos federales de mi sueldo?
+
+      ¿Realicé pagos de impuestos estimados?
+
+      ¿Pagué de más el año pasado y lo apliqué al impuesto de este año?
+
+      ¡Mas info vaya al irs.gov o venga a Etax en familia e informese con los que saben de verdad!
+
+
+							</textarea>
+								
+						<hr>
+					<h4>Attachments</h4>
+							<label class="custom-file" style="width: 100%">
   										<input onchange="fileselected()" type="file" id="file" class="custom-file-input">
   										<span class="custom-file-control"></span>
 										</label>
-									</div>
-									<div class="row">
-									<div class="card-body">
-										<div class="list-group list-group-flush small pre-scrollable" id="attachments"> 
-										</div>
-									</div>
-									</div>
-								</div>
-							</div>
-							
+										<br></br>
+							<ul class="list-group">
+  <li class="list-group-item"><img style="width: 100px; height: 75px;"src="static/img/etaxpromo.png" alt="..." class="img-thumbnail">&nbsp; e-tax_contact_info.png</li>
+  <li class="list-group-item"><img style="width: 100px; height: 75px;"src="static/img/contact_info.png" alt="..." class="img-thumbnail">&nbsp; consejo_atributario_2018.jpg</li>
+</ul>		
 						</div>
 					</div>
 				</div>
 				
 				<!-- marketing channel & approval -->
-				<div class="col-sm-5">
+				<div class="col-sm-5 mt-3">
 					<!-- channels -->
 					<div class row>
 						<div class=" card mb-3" id="marketing_channel">
-							<div class="card-header"> Marketing Channel</div>
+							<div class="card-header"> Marketing Channel and Audience</div>
 							<div class="card-body">
-								<div class="list-group list-group-flush small" id="marketing_channel_list"> 
+								<div class="row">
+							<div  class="col-sm-10">
+								<h4>Marketing Channel:</h4>
+							</div>
+							 <p class="card-text">
+      <ul>
+        <li><i class="fa fa-facebook-square"></i> Facebook</li>
+        <li><i class="fa fa-envelope"></i> Email</li>
+        <li><i class="fa fa-newspaper-o"></i> Newspaper</li>
+      </ul>  
+							
+							
+						</div>
+						<hr>
+						<div class="row">
+							<div  class="col-sm-10">
+								<h4>Audience:</h4>
+							</div>
+							<div  class="col-sm-2">
+								<button id="email_settings"  class="btn  btn-outline-primary btn-sm" onClick="showEditEmail('1')" type="button" ><i class="fa fa-edit"></i>Edit</button>
+
+							  
+							</div>
+							<p class="card-text">
+      <ul>
+      <li>Location
+        <ul style="list-style-type:square">
+        <li>Puerto Rico</li>
+      </ul>
+      </li>
+      <li>Clients:
+        <ul style="list-style-type:square">
+        <li>Taxpayers</li>
+      </ul>
+      </li>
+      <li>Gender:
+        <ul style="list-style-type:square">
+        <li>Male</li>
+        <li>Female</li>
+        <li>Other</li>
+      </ul>
+      </li>
+    </ul>
+							
+						</div>
+						
+						
+								<!-- <div class="list-group list-group-flush small" id="marketing_channel_list"> 
 									
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -250,9 +335,40 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 						<div class=" card mb-3" id="approval">
 							<div class="card-header"> Approval</div>
 							<div class="card-body">
-							<label>Approval Status: <a id="approval_status">Not approved</a></label>
-							<label style="width: 100%">Comments by <a id="person2approve"></a>
-									 <textarea class="form-control" rows="5" id="comment" placeholder="No comments for the momment">Marketing material still needs work</textarea>
+							<label><h4>Approval Status: </h4></a></label>
+							<div class="form-group">
+            <div class="row">
+            <div style="margin: 0px 0px 0px 5%" class="span2">
+              <!-- <label for="location" class="form-control-label">By Client Type:</label> -->
+             
+              <label class="checkbox">
+                <input data-toggle="tooltip" title="Just an admin can approve" id="filter" type="checkbox" checked disabled name="optionsCheckboxList3" value="option1">
+                Approved to Start
+              </label>
+              <br/>
+              <label class="checkbox">
+                <input data-toggle="tooltip" title="Just an admin can approve" id="filter" disabled type="checkbox" name="optionsCheckboxList3" value="option3">
+                Audience Approved
+              </label>
+              <br>
+              <label class="checkbox">
+                <input data-toggle="tooltip" title="Just an admin can approve" id="filter" disabled type="checkbox" name="optionsCheckboxList3" value="option2">
+              Proofreading Approved
+              </label>
+              <br/>
+              <label class="checkbox">
+                <input data-toggle="tooltip" title="Just an admin can approve" id="filter" disabled  type="checkbox" name="optionsCheckboxList3" value="option3">
+                Approved for Publishing
+              </label>
+              
+            </div>
+            </div>
+          </div>
+         
+							<hr>
+							<label style="width: 100%"><h4>Comments by Project Manager:</h4> <a id="person2approve"></a>
+									 <textarea disabled class="form-control" rows="5" id="comment" placeholder="No comments for the momment">Projects need some proofreading
+Audience should not include female</textarea>
 								</label>
 							</div>
 						</div>
@@ -421,7 +537,108 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
         </div>
       </div>
 	</div>
-
+<!-- -------------- -->
+	<!-- -------------- -->
+	<!--  EDIT MODAL -->
+	<!-- -------------- -->
+	<!-- -------------- -->
+		<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="addProjectModal" aria-hidden="true">
+      <div class="modal-dialog" role="dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Project</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">
+          <form action="/action_page.php" id="addProjectForm">
+          <label for="required" class="form-control-label">
+  					<strong style="color: red;">Required*</strong>
+					</label>
+    				<div class="form-group">
+      				<label for="name">Name:</label><strong style="color: red;"> *</strong>
+      				<div id="nameBox">
+      					<input onclick="resetNameColor()" type="text" class="form-control" id="edit_project_name" placeholder="Enter project name" name="project_name" required>
+      					<input id="edit_project_id" style="display:none">
+      				</div>
+    				</div>
+    				<div class="form-group">
+      				<label for="projectDescription">Description:</label>
+      				<div id="descriptionBox">
+      					<input  type="text" class="form-control" id="edit_project_description" placeholder="Enter a brief description for the project" name="projectDescription" >
+      				</div>
+    				</div>
+    				<div class="form-group">
+	    				<label for="importance">Importance:</label>
+	    				<input list="importanceList" id="edit_project_importance" class="form-control" placeholder="Select an importance level" name="project_importance">
+  							<datalist id="importanceList">
+    							<option value="Low"></option>
+   								<option value="Medium"></option>
+   								<option value="High"></option>
+  							</datalist>
+	    			</div>
+    				<div class="form-group">
+      				<label for="name">Deadline:</label>
+      				<input type="date" class="form-control" id="edit_project_deadline"  name="project_deadline">
+    				</div>
+	    			<div class="form-group">
+	    				<label for="approveBy">Needs to be Approved by:</label>
+	    				<input list="administrators" id="edit_project_approved_person" class="form-control" placeholder="Select an administrator" name="approval">
+  							<datalist id="administrators">
+    							<option value="Gloribel"></option>
+   								<option value="Janire"></option>
+  							</datalist>
+	    			</div>
+	    			<div class="form-group">
+	    				<label for="approveBy">Members:</label><strong style="color: red;"> *</strong>
+	    				<div class="small text-muted">Select at least one member. By default you will be a member</div>
+	    				<div id="edit_project_members_selected_div" onchange="resetMembersColor()" ><select onclick="resetMembersColor()" class="form-control selectpicker"  multiple placeholder="Select at least one member" data-live-search="true" name="edit_approval" id="edit_project_members_selected">
+    							<option onclick="resetMembersColor()"  value="Gloribel">Gloribel</option>
+    							<option onclick="resetMembersColor()"  value="Graciany">Graciany</option>
+    							<option onclick="resetMembersColor()"  value="Glorimar">Glorimar</option>
+   								<option onclick="resetMembersColor()"  value="Janire">Janire</option>
+   								<option onclick="resetMembersColor()"  value="Fabiola">Fabiola</option>
+  							</select></div>
+	    			</div>
+	    			<div class="form-group">
+	    				<label for="marketing_chanels">Marketing Channel(s):</label>
+	    				<div class="row">
+              		<div style="margin: 0px 0px 0px 5%" class="span2">
+	                	<label class="checkbox">
+	                  	<input type="checkbox" name="optionsCheckboxList1" id="edit_facebook" value="facebook">
+	                  	Facebook  &emsp; 
+	                	</label>
+										<label class="checkbox">
+	                  	<input type="checkbox" name="optionsCheckboxList1" id="edit_email" value="email">
+	                		E-mail    &emsp;
+	                	</label>
+	                	<label class="checkbox">
+	                  	<input type="checkbox" name="optionsCheckboxList1" id="edit_newspaper" value="newspaper">
+	                		Newspaper   
+	                	</label>
+              		</div>
+           			
+            	</div>
+	    			
+	    			</div>
+	    			
+	    			</form>
+ 					
+ 					</div>
+          <div class="modal-footer">
+          <button id="editProjectBtn" title="Are you sure?" onClick="editProjectPopout()" type="button" data-trigger="manual" class="btn btn-secondary" data-container="body" data-html="true" data-toggle="popover" data-placement="top" href="#">
+ Edit
+</button>
+	          	 <button class="btn btn-secondary" onClick="clearEditProjectModal()" type="button" data-dismiss="modal">Cancel</button> <br>
+            <!--  <a class="btn btn-primary" href="/userLogout">Logout</a>-->
+          </div>
+          <div id="edit_project_validation_message">
+          </div>
+          </form>
+        </div>
+      </div>
+	</div>
     
       <!-- Bootstrap core JavaScript-->
     <script src="static/vendor/jquery/jquery.min.js"></script>
@@ -436,7 +653,22 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
     <script src="static/js/sb-admin.min.js"></script>
     
      <script>
+     function editText(){
+    	 document.getElementById("previewtext").style.display = "none"; 
+    	 document.getElementById("textareatext").style.display = "";
+    	 document.getElementById("stopeditTextBtn").style.display = "";
+    	 document.getElementById("editTextBtn").style.display = "none";
+     }
      
+     function stopeditText(){
+    	 document.getElementById("textareatext").style.display = "none"; 
+    	 document.getElementById("previewtext").style.display = "";
+    	 document.getElementById("editTextBtn").style.display = "";
+    	 document.getElementById("stopeditTextBtn").style.display = "none";
+     }
+     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+     //		EMAIL STUFF
+     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
      function change_email_settings(){
     	 document.getElementById("changeEmailSettings").setAttribute('data-content',`
 				  <button class="btn  btn-secondary btn-xs" onClick="changeEmailData()" type="button" >Confirm</button>
@@ -522,6 +754,9 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			$('#changeEmailSettings').popover('hide');
 		}
      
+     
+     
+     
     function fileselected(){
     	temp = document.getElementById("file").value;
     	file_name = temp.substring(temp.indexOf("fakepath\\") + 10);
@@ -547,7 +782,6 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
     
     
      function showEditEmail(id){
-    	 alert("entrando")
     	 //look for data
 			var http = new XMLHttpRequest();
 			  http.onreadystatechange = function(){
@@ -586,6 +820,10 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
     	 
     	 $('#emailSettingModal').modal('show');
      }
+     
+     
+     
+     
      //set project name
     	var actual_project_data = "";
  			var http2 = new XMLHttpRequest();
@@ -611,14 +849,48 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
     			}
     			document.getElementById("marketing_channel_list").innerHTML = temp_string;
     			document.getElementById("person2approve").innerHTML += actual_project_data.person_to_approve + ":";
- 				}else if (this.readyState == 4){
+ 					
+    			//hide btn de edit y delete si 
+    			if(actual_project_data.owner == actual_project_data.current_user){
+    				document.getElementById("deleteBtn").setAttribute("data-toggle", "popover");
+    				document.getElementById("deleteBtn").setAttribute("title", "Are you sure?");
+    				document.getElementById("deleteBtn").setAttribute('data-content',`
+							  <button class="btn  btn-secondary btn-xs" onClick="deleteProject()" type="button" >Confirm</button>
+							  	<button id="popOverCancel"  onClick="closeDeleteProject()" class="btn  btn-secondary btn-xs" type="button" >Cancel</button> 
+					 `);
+					 
+    				
+    				document.getElementById("editBtn").setAttribute("onClick", "showEditProject('" + actual_project_data.id + "')");
+    				
+    				
+    				
+    			}else{
+    				
+    				document.getElementById("deleteBtn").setAttribute("data-toggle", "tooltip");
+    				document.getElementById("deleteBtn").setAttribute("title", "Just owners can delete projects");
+    				document.getElementById("deleteBtn").disabled = 'true';
+    				document.getElementById("editBtn").setAttribute("data-toggle", "tooltip");
+    				document.getElementById("editBtn").setAttribute("title", "Just owners can edit projects");
+    				document.getElementById("editBtn").disabled = 'true';
+    			}
+
+   			
+   			}else if (this.readyState == 4){
 	 	  
 	 			}  
 			};
 			http2.open("GET", "/getProjectInView", true);
 			http2.send(null);
 	
-     
+     //deleteProject
+			function closeDeleteProject(){
+				$('#deleteBtn').popover('hide');
+			}
+			
+			
+			
+			
+			
 		var userProjects = [];
 
 		var http = new XMLHttpRequest();
@@ -681,10 +953,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 			   											</div>
 			   										</div>
 			   										<div class="col-sm-2">
-							                  		<div class="h4 mb-0 ">
-							                  		<button style="z-index: 1024" id= ` + "'editProject" +   userProjects[i].id + "'" +   temp_edit_visibility + ` class="btn  btn-outline-primary btn-xs" onClick=` + "\"showEditProject('" +   userProjects[i].id + "')\"" + ` type="button" ><i class="fa fa-edit"></i>Edit</button> 
-							                  		<button  id= ` + "'deleteProject" +   userProjects[i].id + "'" +  temp_delete_visibility +` class="btn  btn-outline-danger btn-xs"  data-container="body" data-html="true" data-toggle="popover" data-placement="top" href="#" onClick= ` + "\"deleteProjectPopOver('" +   userProjects[i].id + "')\"" + ` type="button" ><i class="fa fa-trash"></i>Delete</button>
-			   														</div>
+							                  		
 			   										</div>
 				   								</div>
 			                  </div>
@@ -712,8 +981,198 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 		
 
 
-
+		//=============================================================================
+		//		EDIT PROJECT	
+	  //=============================================================================
+		  var new_project_data = {};
+		function sendDataForEditProject(){
+			var temp_json = {};
 			
+			new_project_data['id'] = document.getElementById('project_id').value;
+			
+			
+			  
+			  //CHANGE FOR EDIT
+			  
+			var http = new XMLHttpRequest();
+			  http.onreadystatechange = function(){
+			      if(this.readyState == 4 && this.status == 200){
+			    		  window.location.href = "/project?name=" + new_project_data.name + "&id=" +  document.getElementById('project_id').value;
+			    	  
+			      }else if (this.readyState == 4){
+			    	  
+			      }  
+			  };
+			  http.open("POST", "/editProject", true);
+			  http.setRequestHeader("Content-type", "application/json");
+			  http.send(JSON.stringify(new_project_data));
+		}
+		
+		function editValidationMessage(){
+			//document.getElementById('add_project_validation_message').className += 'modal-footer';
+			document.getElementById('edit_project_validation_message').style.textAlign = "right";
+			document.getElementById('edit_project_validation_message').style.margin = "-3% 2% 2% 0%";
+			document.getElementById('edit_project_validation_message').innerHTML = `
+				<strong class="small" style="color: red;"> **Some required fields are empty</strong>
+			
+			`;
+			
+		}
+		
+		function editProjectPopout(){
+			var e = document.getElementById("edit_project_members_selected");
+			 
+			 var miembros = [];
+			 for (i = 0; i < e.length; i++){
+				 if(e.options[i].selected){
+				 	miembros.push(e.options[i].text);
+				 }var e = document.getElementById("edit_project_members_selected");
+				 
+				 var miembros = [];
+				 for (i = 0; i < e.length; i++){
+					 if(e.options[i].selected){
+					 	miembros.push(e.options[i].text);
+					 }
+				 }
+				 new_project_data["members"] = miembros;
+				 
+				 var tempt = document.getElementById("edit_project_name").value;
+				 new_project_data["name"] = document.getElementById("edit_project_name").value;
+				 new_project_data["deadline"] = document.getElementById("edit_project_deadline").value;
+				 new_project_data["person_to_approve"] = document.getElementById("edit_project_approved_person").value;
+				 new_project_data["importance"] = document.getElementById("edit_project_importance").value;
+				 new_project_data["description"] = document.getElementById("edit_project_description").value;
+				 
+				 var media_channel = []
+				 if(document.getElementById("edit_facebook").checked){
+			   	media_channel.push("facebook");
+			   }
+				 if(document.getElementById("edit_email").checked){
+					   	media_channel.push("email");
+				 }
+				 if(document.getElementById("edit_newspaper").checked){
+					   	media_channel.push("newspaper");
+				 }
+				 new_project_data["media_channel"] = media_channel;
+				 
+				
+				 //validation
+				 var validation_pass = true;
+				 if(tempt == ""){
+					  document.getElementById("edit_project_name").style.backgroundColor = "#fff5f5";
+					  document.getElementById("edit_project_name").style.borderColor     = "#d53f3f";
+					  document.getElementById("edit_project_name").style.borderWidth     = "2px"
+					  document.getElementById("edit_project_name").style.color           = "#0";
+					  validation_pass = false;
+					  
+				 }
+				
+				 if(miembros.length <= 0){
+					  document.getElementById("edit_project_members_selected_div").style.backgroundColor = "#fff5f5";
+					  document.getElementById("edit_project_members_selected_div").style.borderColor     = "#d53f3f";
+					  document.getElementById("edit_project_members_selected_div").style.borderWidth     = "2px";
+					  document.getElementById("edit_project_members_selected_div").style.color           = "#0";
+					  document.getElementById("edit_project_members_selected_div").style.borderStyle     = "groove";
+					  document.getElementById("edit_project_members_selected_div").style.borderRadius     = "3px";
+					  document.getElementById("edit_project_members_selected").style.background     = "#fff5f5";
+					  validation_pass = false;
+				 }
+				 
+				 if(validation_pass){
+					 document.getElementById("editProjectBtn").setAttribute('data-content',`
+							  <button class="btn  btn-secondary btn-xs" onClick="sendDataForEditProject()" type="button" >Confirm</button>
+							  	<button id="popOverCancel"  onClick="closeNewProjectPopOver()" class="btn  btn-secondary btn-xs" type="button" >Cancel</button> 
+					 `);
+					 
+					 $('#editProjectBtn').popover('show');
+					 
+				 }else{
+					 editValidationMessage();
+				 }
+
+			 }
+			 
+			 
+
+		}
+		
+		
+		function editProject(project_name){
+			//alert(JSON.stringify(window.project_data));
+			//alert(window.project_data.name)
+			document.getElementById('project_id').value = window.project_data.id;
+			document.getElementById('edit_project_name').value = window.project_data.name;
+			document.getElementById('edit_project_description').value = window.project_data.description;
+			document.getElementById('edit_project_importance').value = (!window.project_data.importance)? 'None' : window.project_data.importance;
+			document.getElementById('edit_project_deadline').value = window.project_data.deadline;
+			document.getElementById('edit_project_approved_person').value = window.project_data.person_to_approve;
+			//document.getElementById('edit_project_members_selected').value = 'Glorimar';
+			
+			$('select[name=edit_approval]').val(window.project_data.members_name);
+			$('.selectpicker').selectpicker('refresh')
+			
+			for(i = 0; i < window.project_data.media_channel.length; i++){
+				document.getElementById('edit_' + window.project_data.media_channel[i]).checked = true;
+			}
+			
+			$('#editModal').modal('show');
+		}
+		
+		
+		var project_data = {};
+		function showEditProject(project_name){
+			
+			var temp_json = {};
+			temp_json['id'] = project_name;
+			var http = new XMLHttpRequest();
+			  http.onreadystatechange = function(){
+			      if(this.readyState == 4 && this.status == 200){
+			    	  window.project_data = JSON.parse(this.responseText);
+			    	  editProject();
+			      }else if (this.readyState == 4){
+			    	  
+			      }  
+			  };
+			  http.open("GET", "/getProjectData/" + project_name, true);
+			  http.send(null);
+			  
+		}
+			
+		//=============================================================================
+		//		DELETE PROJECT	
+	  //=============================================================================
+		function deleteProject(project_name){
+			var temp_json = {};
+			temp_json['id'] = document.getElementById('project_id').value;
+			var http = new XMLHttpRequest();
+			  http.onreadystatechange = function(){
+			      if(this.readyState == 4 && this.status == 200){
+			    	  window.location.href = '/projects';
+			    	  
+			      }else if (this.readyState == 4){
+			    	  
+			      }  
+			  };
+			  http.open("POST", "/deleteProject", true);
+			  http.setRequestHeader("Content-type", "application/json");
+			  http.send(JSON.stringify(temp_json));
+			  
+			
+		}
+		
+		function deleteProjectPopOver(project_name){
+			 document.getElementById("deleteProject" + project_name).setAttribute('data-content',`
+					  <button class="btn  btn-secondary btn-xs" onClick= ` + "\"deleteProject('" +  project_name  + "')\"" + ` type="button" >Confirm</button>
+					  	<button id="popOverCancel"  onClick=` + "\"closeDeletePopOver('" +  project_name  + "')\"" + ` class="btn  btn-secondary btn-xs" type="button" >Cancel</button> 
+			 `);
+			$('#deleteProject' + project_name).popover('show');
+		}
+		
+		
+		function closeDeletePopOver(project_name){
+			$('#deleteProject' + project_name).popover('hide');
+		}
+		
 
 
  </script>
